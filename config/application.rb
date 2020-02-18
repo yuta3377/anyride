@@ -21,7 +21,7 @@ module AppName
     config.active_record.default_timezone = :local
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ja
-  
+
     config.generators do |g|
       g.test_framework :rspec,
                        view_specs: false,
