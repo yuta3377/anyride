@@ -39,4 +39,11 @@ class Bike < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :users, through: :favorites, dependent: :destroy
+
+  validates :name,
+            :price,
+            :year,
+            :displacement,
+            :mileage,
+            presence: true
 end

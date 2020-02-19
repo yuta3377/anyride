@@ -5,13 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-20.times do
-  Bike.create(
-    name: Faker::Bike.name,
-    price: 5000,
-    year: 2020,
-    displacement: 600,
-    mileage: 10000,
-    description: "見た目の格好良さと加速が売りです！"
-  )
-end
+Manufacture.create!(name: "Honda")
+Manufacture.create!(name: "Kawasaki")
+Bodytype.create!(name: "ネイキッド")
+Bodytype.create!(name: "アメリカン")
+Prefecture.create!(name: "東京都")
+Prefecture.create!(name: "神奈川県")

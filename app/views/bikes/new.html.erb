@@ -1,0 +1,22 @@
+<h1>バイク登録</h1>
+<%= form_for @bike, url: bikes_path do |f| %>
+  <p>メーカー</p>
+    <p><%= f.collection_select(:manufacture_id, @manufactures, :id, :name, prompt: true) %></p>
+  <p>バイク名</p>
+  <p><%= f.text_field :name %></p>
+  <p>ボディタイプ</p>
+  <p><%= f.collection_select(:bodytype_id, @bodytypes, :id, :name, prompt: true) %></p>
+  <p>排気量</p>
+  <p><%= f.text_field :displacement %></p>
+  <p>年式</p>
+  <p><%= f.text_field :year %>年</p>
+  <p>走行距離</p>
+  <p><%= f.text_field :mileage %>km</p>
+  <p>都道府県</p>
+  <p><%= f.collection_select(:prefecture_id, @prefectures, :id, :name, prompt: true) %></p>
+  <p>料金</p>
+  <p><%= f.text_field :price %>円</p>
+  <p>バイク説明</p>
+  <p><%= f.text_area :description %></p>
+  <p><%= f.submit "バイクを登録する" %></p>
+<% end %>
