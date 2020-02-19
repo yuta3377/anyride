@@ -10,8 +10,9 @@
 #
 # Indexes
 #
-#  index_favorites_on_bike_id  (bike_id)
-#  index_favorites_on_user_id  (user_id)
+#  index_favorites_on_bike_id              (bike_id)
+#  index_favorites_on_user_id              (user_id)
+#  index_favorites_on_user_id_and_bike_id  (user_id,bike_id) UNIQUE
 #
 # Foreign Keys
 #

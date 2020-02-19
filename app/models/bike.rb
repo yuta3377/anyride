@@ -38,6 +38,7 @@ class Bike < ApplicationRecord
   belongs_to :bodytypes
   has_many :reservations, dependent: :destroy
   has_many :images, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites, dependent: :destroy
 
   validates :name,

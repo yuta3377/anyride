@@ -32,6 +32,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :reservations, dependent: :destroy
   has_many :bikes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :bikes, through: :favorites, dependent: :destroy
 
   validates :nickname,
