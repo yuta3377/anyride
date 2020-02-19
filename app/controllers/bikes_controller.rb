@@ -14,7 +14,7 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(bike_params)
-    if @bike.save! #後でsaveに変更する
+    if @bike.save! # 後でsaveに変更する
       flash[:success] = "バイクが登録されました"
       redirect_to root_path
     else
