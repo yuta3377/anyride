@@ -1,2 +1,14 @@
-<h1>こんにちは、<%= current_user.nickname %>さん</h1>
-<p>ユーザー用ページです。</p>
+<h1>バイク情報</h1>
+<h2><%= @bike.manufacture.name %></h2>
+<h2><%= @bike.name %></h2>
+<h2><%= @bike.prefecture.name %></h2>
+<h2>年式：<%= @bike.year %>年</h2>
+<h2>走行距離：<%= @bike.prefecture.name %></h2>
+<h2>排気量：<%= @bike.displacement %>cc</h2>
+<h2>お気に入り</h2>
+<h2>料金：<%= @bike.price %>円/日</h2>
+<h1>オーナー</h1>
+<h2><%= @user.nickname %>さん</h2>
+<h1>説明</h1>
+<h2><%= @bike.description %></h2>
+<h1>予約</h1>

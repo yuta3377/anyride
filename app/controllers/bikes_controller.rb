@@ -6,12 +6,9 @@ class BikesController < ApplicationController
     @bikes = Bike.all
   end
 
-  def show
-  end
-
   def new
     @bike = Bike.new
-end
+  end
 
   def create
     @bike = Bike.new(bike_params)
@@ -23,15 +20,20 @@ end
     end
   end
 
+  def show
+    @bike = Bike.find(params[:id])
+    @user = User.find(@bike.user_id)
+  end
+
   private
 
   def bike_params
     params.require(:bike).permit(:name, :price, :year, :displacement, :mileage, :description,
-                               :user_id, :manufacture_id, :prefecture_id, :bodytype_id)
+                                 :user_id, :manufacture_id, :prefecture_id, :bodytype_id)
   end
 
   def user_login?
-    unless current_user.present?
+    if current_user.blank?
       redirect_to users_path
     end
   end

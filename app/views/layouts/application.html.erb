@@ -14,6 +14,7 @@
       <div class="container">
         <header>
           <nav>
+            <%= link_to "ホーム",root_path %>
             <% if user_signed_in? %>
               <strong><%= link_to current_user.nickname, edit_user_registration_path %></strong>
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
