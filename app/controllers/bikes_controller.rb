@@ -1,4 +1,5 @@
 class BikesController < ApplicationController
+  before_action :user_login?, only: [:new, :create]
   before_action :set_models, only: [:new, :create]
 
   def index
@@ -10,7 +11,7 @@ class BikesController < ApplicationController
 
   def new
     @bike = Bike.new
-  end
+end
 
   def create
     @bike = Bike.new(bike_params)
@@ -26,7 +27,13 @@ class BikesController < ApplicationController
 
   def bike_params
     params.require(:bike).permit(:name, :price, :year, :displacement, :mileage, :description,
-                                 :user_id, :manufacture_id, :prefecture_id, :bodytype_id)
+                               :user_id, :manufacture_id, :prefecture_id, :bodytype_id)
+  end
+
+  def user_login?
+    unless current_user.present?
+      redirect_to users_path
+    end
   end
 
   def set_models
