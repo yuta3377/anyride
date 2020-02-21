@@ -1,0 +1,10 @@
+<h1>"<%= @prefecture.name %>"のバイク一覧</h1>
+<% @bikes_in_prefecture.each do |bike| %>
+<%= link_to bike_path(bike.id) do %>
+<p>お気に入り件数(◯件)</p>
+<p>バイク画像</p>
+<p><%= bike.name %></p>
+<p><%= bike.price %>円/日</p>
+<p><%= @prefecture.name %></p>
+<% end %>
+<% end %>

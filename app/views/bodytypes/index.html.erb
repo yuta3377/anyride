@@ -1,0 +1,3 @@
+<% @bodytypes.each do |bodytype| %>
+<p><%= link_to bodytype.name, bodytype_path(bodytype.id) %>(<%=bodytype.bikes.count%>)</p>
+<% end %>

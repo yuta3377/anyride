@@ -32,11 +32,19 @@
 #
 
 class Bike < ApplicationRecord
-  belongs_to :users
-  belongs_to :manufactures
-  belongs_to :prefectures
-  belongs_to :bodytypes
+  belongs_to :user
+  belongs_to :manufacture
+  belongs_to :prefecture
+  belongs_to :bodytype
   has_many :reservations, dependent: :destroy
   has_many :images, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites, dependent: :destroy
+
+  validates :name,
+            :price,
+            :year,
+            :displacement,
+            :mileage,
+            presence: true
 end

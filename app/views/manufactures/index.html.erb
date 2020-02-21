@@ -1,0 +1,3 @@
+<% @manufactures.each do |manufacture| %>
+<p><%= link_to manufacture.name, manufacture_path(manufacture.id) %>(<%=manufacture.bikes.count%>)</p>
+<% end %>

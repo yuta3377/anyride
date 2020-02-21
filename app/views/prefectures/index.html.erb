@@ -1,0 +1,3 @@
+<% @prefectures.each do |prefecture| %>
+<p><%= link_to prefecture.name, prefecture_path(prefecture.id) %>(<%=prefecture.bikes.count%>)</p>
+<% end %>
