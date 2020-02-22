@@ -1,0 +1,50 @@
+<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= link_to root_path do %>
+      <div class="navbar-item">
+        <i class="fas fa-motorcycle fa-3x" style="color:#00BFFF" width="112" height="28"></i>
+        <h1 class="title is-1 is-spaced" style="color:#00BFFF">AnyRide</h1>
+      </div>
+    <% end %>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <strong><%= link_to "ホーム", root_path %></strong>
+      </div>
+      <div class="navbar-item">
+        <strong><%= link_to "バイク検索", prefectures_path %></strong>
+      </div>
+      <div class="navbar-item">
+        <strong><%= link_to "お気に入り" %></strong>
+      </div>
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if user_signed_in? %>
+            <%= link_to edit_user_registration_path do %>
+              <div class="button is-light">
+                <strong><%= current_user.nickname%>さん</strong>
+              </div>
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <div class="button is-light">
+                <strong>ログアウト</strong>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_registration_path do %>
+              <div class="button is-light">
+                <strong>サインアップ</strong>
+              </div>
+            <% end %>
+            <%= link_to new_user_session_path do %>
+              <div class="button is-light">
+                <strong>ログイン</strong>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,41 @@
+<section class="hero is-info is-medium is-bold">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <%= link_to root_path do %>
+            <div class="navbar-item">
+              <h1 class="title is-1 is-spaced" style="color:white">AnyRide</h1>
+            </div>
+          <% end %>
+        </div>
+        <div id="navbarMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <div class="tabs is-right">
+              <ul>
+                <li class="is-active"><strong><%= link_to "ホーム", root_path %></strong></li>
+                <li><strong><%= link_to "バイク検索", prefectures_path %></strong></li>
+                <li><strong><%= link_to "お気に入り" %></strong></li>
+                <% if user_signed_in? %>
+                  <%= link_to edit_user_registration_path do %>
+                    <li><strong><%= current_user.nickname%>さん</strong></li>
+                  <% end %>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                    <li><strong><strong>ログアウト</strong></li>
+                  <% end %>
+                <% else %>
+                  <%= link_to new_user_registration_path do %>
+                    <li><strong>サインアップ</strong></li>
+                  <% end %>
+                  <%= link_to new_user_session_path do %>
+                    <li><strong>ログイン</strong></li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>

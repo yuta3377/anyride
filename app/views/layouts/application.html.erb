@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Anyride</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <title><%= yield(:title) %> - AnyRide</title>
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Bulma Version 0.8.x-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/hero.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
   </head>
-
   <body>
-    <section class="section">
-      <div class="container">
-        <header>
-          <nav>
-            <%= link_to "ホーム",root_path %>
-            <% if user_signed_in? %>
-              <strong><%= link_to current_user.nickname, edit_user_registration_path %></strong>
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            <% else %>
-              <%= link_to 'サインアップ', new_user_registration_path %>
-              <%= link_to 'ログイン', new_user_session_path %>
-              <% end %>
-          </nav>
-        </header>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <%= yield %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-      </div>
-    </section>
+    <%= render 'layouts/header' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
