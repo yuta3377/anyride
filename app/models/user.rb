@@ -35,6 +35,19 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :bikes, through: :favorites, dependent: :destroy
 
+  def like(bike)
+    favorites.find_or_create_by(bike_id: bike.id)
+  end
+
+  def unlike(bike)
+    favorite = favorites.find_by(bike_id: bike.id)
+    favorite.destroy if favorite
+  end
+
+  def check(bike)
+    self.bikes.include?(bike)
+  end
+
   validates :nickname,
             :last_name,
             :first_name,
