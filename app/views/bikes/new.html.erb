@@ -25,9 +25,9 @@
             <p><%= f.collection_select :prefecture_id, @prefectures, :id, :name, prompt: true %></p>
             <p>料金</p>
             <p><%= f.text_field :price %>円/日</p>
-            <p>バイク説明</p>
+            <p>補足説明</p>
             <p><%= f.text_area :description %></p>
-            <p><%= f.submit "バイクを登録する" %></p>
+            <p><%= f.submit "バイクを登録する", class: "button is-info" %></p>
           <% end %>
         </div>
       </div>

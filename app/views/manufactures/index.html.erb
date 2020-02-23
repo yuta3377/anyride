@@ -49,7 +49,7 @@
             <div class="content is-medium">
               <h2 class="subtitle is-4"></h2>
               <% @manufactures.each do |manufacture| %>
-                <p><%= link_to manufacture.name, manufacture_path(manufacture.id) %>(<%=manufacture.bikes.count%>)</p>
+                <p><%= link_to manufacture.name, manufacture_path(manufacture.id) %>(<%= manufacture.bikes.count %>)</p>
               <% end %>
             </div>
           </div>

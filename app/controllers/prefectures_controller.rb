@@ -5,6 +5,5 @@ class PrefecturesController < ApplicationController
 
   def show
     @prefecture = Prefecture.find(params[:id])
-    @bikes_in_prefecture = @prefecture.bikes
   end
 end
