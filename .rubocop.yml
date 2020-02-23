@@ -18,7 +18,7 @@ AllCops:
     - 'config/spring.rb'
     - 'db/migrate/*'
     - 'db/schema.rb'
-    - 'db/seed.rb'
+    - 'db/seeds.rb'
     - 'lib/tasks/*'
     - 'vendor/**/*'
     - 'path/ruby'
