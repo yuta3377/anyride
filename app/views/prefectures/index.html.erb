@@ -1,3 +1,60 @@
-<% @prefectures.each do |prefecture| %>
-<p><%= link_to prefecture.name, prefecture_path(prefecture.id) %>(<%=prefecture.bikes.count%>)</p>
-<% end %>
+<%= provide :title, "Search by Prefecture" %>
+<section class="section">
+  <div class="container has-text-centered">
+    <h2 class="title">バイク検索</h2>
+  </div>
+</section>
+<section class="container">
+  <div class="columns features">
+    <div class="column is-4">
+      <div class="card is-shady has-background-grey-lighter">
+        <div class="card-content">
+          <div class="content has-text-centered">
+            <h2>場所から探す</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column is-4">
+      <%= link_to manufactures_path do %>
+        <div class="card is-shady">
+          <div class="card-content">
+            <div class="content has-text-centered">
+              <h2>メーカーから探す</h2>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="column is-4">
+      <%= link_to bodytypes_path do %>
+        <div class="card is-shady">
+          <div class="card-content">
+            <div class="content has-text-centered">
+                <h2>ボディタイプから探す</h2>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<hr class="login-hr">
+<section class="hero ">
+  <div class="hero-body">
+    <div class="container">
+      <section class="section">
+        <div class="columns">
+          <div class="column is-8 is-offset-2">
+            <div class="content is-medium">
+              <h2 class="subtitle is-4"></h2>
+              <% @prefectures.each do |prefecture| %>
+                <p><%= link_to prefecture.name, prefecture_path(prefecture.id) %>(<%= prefecture.bikes.count %>)</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

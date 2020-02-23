@@ -5,6 +5,5 @@ class BodytypesController < ApplicationController
 
   def show
     @bodytype = Bodytype.find(params[:id])
-    @bikes_of_bodytype = @bodytype.bikes
   end
 end

@@ -1,23 +1,36 @@
-<h1>バイク登録</h1>
-<%= form_for @bike, url: bikes_path do |f| %>
-<%= f.hidden_field :user_id, value: current_user.id %>
-  <p>メーカー</p>
-  <p><%= f.collection_select :manufacture_id, @manufactures, :id, :name, prompt: true %></p>
-  <p>バイク名</p>
-  <p><%= f.text_field :name %></p>
-  <p>ボディタイプ</p>
-  <p><%= f.collection_select :bodytype_id, @bodytypes, :id, :name, prompt: true %></p>
-  <p>排気量</p>
-  <p><%= f.text_field :displacement %></p>
-  <p>年式</p>
-  <p><%= f.text_field :year %>年</p>
-  <p>走行距離</p>
-  <p><%= f.text_field :mileage %>km</p>
-  <p>都道府県</p>
-  <p><%= f.collection_select :prefecture_id, @prefectures, :id, :name, prompt: true %></p>
-  <p>料金</p>
-  <p><%= f.text_field :price %>円/日</p>
-  <p>バイク説明</p>
-  <p><%= f.text_area :description %></p>
-  <p><%= f.submit "バイクを登録する" %></p>
-<% end %>
+<%= provide :title, "Resistration" %>
+<section class="hero is-white is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-4 is-offset-4">
+        <h3 class="title has-text-black">バイク新規登録</h3>
+        <hr class="login-hr">
+        <p class="subtitle has-text-black">バイク情報を入力してください</p>
+        <div class="box">
+          <%= form_for @bike, url: bikes_path do |f| %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+            <p>メーカー</p>
+            <p><%= f.collection_select :manufacture_id, @manufactures, :id, :name, prompt: true %></p>
+            <p>バイク名</p>
+            <p><%= f.text_field :name %></p>
+            <p>ボディタイプ</p>
+            <p><%= f.collection_select :bodytype_id, @bodytypes, :id, :name, prompt: true %></p>
+            <p>排気量</p>
+            <p><%= f.text_field :displacement %></p>
+            <p>年式</p>
+            <p><%= f.text_field :year %>年</p>
+            <p>走行距離</p>
+            <p><%= f.text_field :mileage %>km</p>
+            <p>都道府県</p>
+            <p><%= f.collection_select :prefecture_id, @prefectures, :id, :name, prompt: true %></p>
+            <p>料金</p>
+            <p><%= f.text_field :price %>円/日</p>
+            <p>補足説明</p>
+            <p><%= f.text_area :description %></p>
+            <p><%= f.submit "バイクを登録する", class: "button is-info" %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

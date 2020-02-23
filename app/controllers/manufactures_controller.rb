@@ -5,6 +5,5 @@ class ManufacturesController < ApplicationController
 
   def show
     @manufacture = Manufacture.find(params[:id])
-    @bikes_of_manufacture = @manufacture.bikes
   end
 end

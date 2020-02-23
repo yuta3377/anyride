@@ -1,10 +1,38 @@
-<h1>"<%= @bodytype.name %>"のバイク一覧</h1>
-<% @bikes_of_bodytype.each do |bike| %>
-<%= link_to bike_path(bike.id) do %>
-<p>お気に入り件数(◯件)</p>
-<p>バイク画像</p>
-<p><%= bike.name %></p>
-<p><%= bike.price %>円/日</p>
-<p><%= @bodytype.name %></p>
-<% end %>
-<% end %>
+<%= provide :title, "Result of Search" %>
+<section class="container">
+  <section class="section">
+    <div class="container has-text-centered">
+      <h2 class="title">"<%= @bodytype.name %>"のバイク検索結果(<%= @bodytype.bikes.count %>件)</h2>
+    </div>
+  </section>
+  <hr class="login-hr">
+</section>
+<div class="container">
+  <div class="section">
+    <div class="row columns is-multiline">
+      <% @bodytype.bikes.each do |bike| %>
+        <div class="column is-one-third">
+          <%= link_to bike_path(bike.id) do %>
+            <div class="card large">
+              <div class="card-image">
+                <figure class="image">
+                  <img src="https://images.unsplash.com/photo-1475778057357-d35f37fa89dd?dpr=1&auto=compress,format&fit=crop&w=1920&h=&q=80&cs=tinysrgb&crop=" alt="Image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <p class="title is-3"><%= bike.manufacture.name %> <%= bike.name %></p>
+                    <p class="is-4"><%= bike.year %>年式</p>
+                    <p class="is-4"><%= bike.price %>円/日</p>
+                    <p class="is-4">お気に入り登録◯件</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
