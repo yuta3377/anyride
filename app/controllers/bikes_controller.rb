@@ -3,7 +3,6 @@ class BikesController < ApplicationController
   before_action :set_models, only: [:new, :create]
 
   def index
-    @bikes = Bike.all
   end
 
   def new
@@ -23,6 +22,11 @@ class BikesController < ApplicationController
   def show
     @bike = Bike.find(params[:id])
     @user = User.find(@bike.user_id)
+  end
+
+  def favorite
+    @user = current_user
+    @favorite_bikes = Favorite.where(user_id: @user.id).map{|i| i.bike}
   end
 
   private

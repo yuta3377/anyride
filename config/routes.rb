@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  get 'favorites/create'
-  get 'favorites/destroy'
   devise_for :users
-  root 'bikes#index'
+  root 'home#index'
+  get 'bikes/popular'
+  get 'bikes/new_arrival'
+  get 'bikes/old'
+  get 'bikes/favorite'
   resources :users
-  resources :bikes
+  resources :bikes, only: [:index, :new, :create, :show]
   resources :prefectures, only: [:index, :show]
   resources :manufactures, only: [:index, :show]
   resources :bodytypes, only: [:index, :show]
