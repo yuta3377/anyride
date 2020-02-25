@@ -49,15 +49,7 @@
   <div class="sandbox">
     <div class="tile is-ancestor">
       <div class="tile is-parent is-shady has-text-centered">
-        <%= link_to '' do %>
-          <article class="tile is-child notification is-white">
-            <h2 class="title">人気バイク</h2>
-            <%= image_tag("popular_bike.jpg") %>
-          </article>
-        <% end %>
-      </div>
-      <div class="tile is-parent is-shady has-text-centered">
-        <%= link_to '' do %>
+        <%= link_to 'bikes/new_arrival' do %>
           <article class="tile is-child notification is-white">
             <h2 class="title">新着バイク</h2>
             <%= image_tag("new_arrival_bike.jpg") %>
@@ -66,6 +58,14 @@
       </div>
       <div class="tile is-parent is-shady has-text-centered">
         <%= link_to '' do %>
+          <article class="tile is-child notification is-white">
+            <h2 class="title">人気バイク</h2>
+            <%= image_tag("popular_bike.jpg") %>
+          </article>
+        <% end %>
+      </div>
+      <div class="tile is-parent is-shady has-text-centered">
+        <%= link_to 'bikes/old' do %>
           <article class="tile is-child notification is-white">
             <h2 class="title">旧車バイク</h2>
             <%= image_tag("old_bike.jpg") %>

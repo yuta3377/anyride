@@ -26,7 +26,18 @@ class BikesController < ApplicationController
 
   def favorite
     @user = current_user
-    @favorite_bikes = Favorite.where(user_id: @user.id).map{|i| i.bike}
+    @favorite_bikes = Favorite.where("user_id = ?", @user).map { |i| i.bike }
+  end
+
+  def popular
+  end
+
+  def new_arrival
+    @new_arrival_bikes = Bike.where("created_at > ?", 1.month.ago).order(created_at: :desc)
+  end
+
+  def old
+    @old_bikes = Bike.where("year < ?", 2000)
   end
 
   private
