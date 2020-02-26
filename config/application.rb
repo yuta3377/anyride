@@ -22,6 +22,8 @@ module AppName
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ja
 
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+
     config.generators do |g|
       g.test_framework :rspec,
                        view_specs: false,

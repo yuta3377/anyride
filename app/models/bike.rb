@@ -37,9 +37,10 @@ class Bike < ApplicationRecord
   belongs_to :prefecture
   belongs_to :bodytype
   has_many :reservations, dependent: :destroy
-  has_many :images, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites, dependent: :destroy
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   validates :name,
             :price,
