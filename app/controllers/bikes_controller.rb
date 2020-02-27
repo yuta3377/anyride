@@ -1,8 +1,13 @@
 class BikesController < ApplicationController
-  before_action :user_login?, only: [:new, :create]
-  before_action :set_models, only: [:new, :create]
+  before_action :user_login?, only: [:new, :create, :edit]
+  before_action :set_models, only: [:new, :create, :edit]
 
   def index
+  end
+
+  def show
+    @bike = Bike.find(params[:id])
+    @user = User.find(@bike.user_id)
   end
 
   def new
@@ -23,9 +28,18 @@ class BikesController < ApplicationController
     end
   end
 
-  def show
+  def edit
+    @bike = current_user.bikes.first
+  end
+
+  def update
     @bike = Bike.find(params[:id])
-    @user = User.find(@bike.user_id)
+    @bike.update(bike_params)
+    redirect_to root_path
+  end
+
+  def destroy
+
   end
 
   def favorite

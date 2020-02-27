@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'bikes/old'
   get 'bikes/favorite'
   resources :users
-  resources :bikes, only: [:index, :new, :create, :show]
+  resources :bikes
   resources :prefectures, only: [:index, :show]
   resources :manufactures, only: [:index, :show]
   resources :bodytypes, only: [:index, :show]
