@@ -30,7 +30,6 @@
             <p>バイク画像アップロード</p>
             <%= f.fields_for :images, multiple: true do |i| %>
               <%= i.file_field :image, multiple: true, type: 'file', name: "[image][]" %>
-              <%= f.submit %>
             <% end %>
             <p><%= f.submit "バイクを登録する", class: "button is-info" %></p>
           <% end %>
