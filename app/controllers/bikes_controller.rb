@@ -39,7 +39,6 @@ class BikesController < ApplicationController
   end
 
   def destroy
-
   end
 
   def favorite
