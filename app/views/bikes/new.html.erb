@@ -27,6 +27,12 @@
             <p><%= f.text_field :price %>円/日</p>
             <p>補足説明</p>
             <p><%= f.text_area :description %></p>
+            <p>バイク画像アップロード（最大３枚）</p>
+            <%= f.fields_for :images, multiple: true do |i| %>
+              <%= i.file_field :image, id:"1", multiple: true, type: 'file', name: "[image][]" %>
+              <%= i.file_field :image, id:"2", multiple: true, type: 'file', name: "[image][]" %>
+              <%= i.file_field :image, id:"3", multiple: true, type: 'file', name: "[image][]" %>
+            <% end %>
             <p><%= f.submit "バイクを登録する", class: "button is-info" %></p>
           <% end %>
         </div>

@@ -76,9 +76,11 @@
   </div>
 </section>
 <section class="section">
-  <%= link_to new_bike_path do %>
-    <div class="container has-text-centered">
-      <button class="button is-info is-large">バイク登録はこちら！</button>
-    </div>
+  <% if current_user %>
+    <%= link_to new_bike_path do %>
+      <div class="container has-text-centered">
+        <button class="button is-info is-large">バイク登録はこちら！</button>
+      </div>
+    <% end %>
   <% end %>
 </section>

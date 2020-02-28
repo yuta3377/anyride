@@ -3,7 +3,7 @@
 # Table name: images
 #
 #  id         :bigint           not null, primary key
-#  image_url  :string(255)
+#  image      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  bike_id    :bigint
