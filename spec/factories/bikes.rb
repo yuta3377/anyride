@@ -33,11 +33,16 @@
 
 FactoryBot.define do
   factory :bike do
-    name { "MyString" }
-    price { 1 }
-    year { 1 }
-    displacement { 1 }
-    mileage { 1 }
-    descriptioin { "MyText" }
+    id { 1 }
+    name { "CB1300SB" }
+    price { 6000 }
+    year { 2011 }
+    displacement { 1300 }
+    mileage { 25000 }
+    description { "Nice bike!" }
+    manufacture_id { 0 }
+    prefecture_id { 1 }
+    bodytype_id { 0 }
+    user_id { 0 }
   end
 end
