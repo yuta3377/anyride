@@ -40,9 +40,10 @@ FactoryBot.define do
     displacement { 1300 }
     mileage { 25000 }
     description { "Nice bike!" }
-    manufacture_id { 0 }
-    prefecture_id { 1 }
-    bodytype_id { 0 }
-    user_id { 0 }
+
+    association :user
+    association :prefecture
+    association :manufacture
+    association :bodytype
   end
 end

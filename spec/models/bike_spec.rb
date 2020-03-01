@@ -34,5 +34,16 @@
 require 'rails_helper'
 
 RSpec.describe Bike, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validation" do
+    it "presence:trueの値があれば有効であること" do
+      bike = create(:bike)
+      expect(bike).to be_valid
+    end
+
+    it "presence:trueの値がなければ無効であること" do
+      bike = create(:bike)
+      bike.name = nil
+      expect(bike.valid?).to eq false
+    end
+  end
 end

@@ -23,4 +23,5 @@ AllCops:
     - 'vendor/**/*'
     - 'path/ruby'
     - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
     - 'app/models/user.rb'
