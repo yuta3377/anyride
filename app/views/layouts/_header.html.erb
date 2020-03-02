@@ -17,7 +17,7 @@
                 <li><strong><%= link_to "バイク検索", prefectures_path %></strong></li>
                 <li><strong><%= link_to "お気に入り", 'bikes/favorite' %></strong></li>
                 <% if user_signed_in? %>
-                  <%= link_to edit_bike_path(current_user.bikes.first) do %>
+                  <%= link_to edit_bike_path(current_user.bikes.first) if current_user.bikes.first do %>
                     <li><strong>マイバイク</strong></li>
                   <% end %>
                   <%= link_to edit_user_registration_path do %>

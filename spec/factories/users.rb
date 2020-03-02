@@ -27,19 +27,25 @@
 
 FactoryBot.define do
   factory :user, class: "User" do
-    nickname { 'Yuya' }
-    last_name { '清水' }
-    first_name { '優也' }
-    last_name_kana { 'シミズ' }
-    first_name_kana { 'ユウヤ' }
-    birthday { '1990/10/29' }
+    id { 3 }
+    nickname { 'Ichiro' }
+    last_name { '鈴木' }
+    first_name { '一郎' }
+    last_name_kana { 'スズキ' }
+    first_name_kana { 'イチロウ' }
+    birthday { '1990/10/30' }
     address { '神奈川県横浜市' }
     phone_number { '09033333333' }
-    email { 'yuya@example.com' }
+    email { 'ichiro@example.com' }
     password { '333333' }
 
     trait :invalid do
       nickname { nil }
     end
+  end
+
+  factory :logged_in_user do
+    email { 'jiro@example.com' }
+    password { '444444' }
   end
 end
