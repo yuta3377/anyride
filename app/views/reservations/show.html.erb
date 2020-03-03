@@ -1,0 +1,26 @@
+<%= provide :title, "Reservation" %>
+<section class="hero is-white is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-4 is-offset-4">
+        <h3 class="title has-text-black">予約フォーム</h3>
+        <hr class="login-hr">
+        <p class="subtitle has-text-black">予約情報を入力してください</p>
+        <div class="box">
+          <%= form_for [@bike, @bike.reservations.new] do |f| %>
+          <%= f.hidden_field :bike_id, value: @bike.id %>
+            <div class="col-md-6">
+              <label>借りたい日</label>
+              <%= f.text_field  :start_date,  :class => 'datepicker' %>
+            </div>
+            <div class="col-md-6">
+              <label>返す日</label>
+              <%= f.text_field :end_date, :class => 'datepicker' %>
+            </div>
+            <p><%= f.submit "この日程で予約する", class: "btn btn-danger btn-wide" %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
