@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   resources :manufactures, only: [:index, :show]
   resources :bodytypes, only: [:index, :show]
   resources :favorites, only: [:create, :destroy]
+  resources :bikes do
+    resources :reservations, only: [:show, :create]
+  end
 end
