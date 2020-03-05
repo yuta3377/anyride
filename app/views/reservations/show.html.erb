@@ -9,18 +9,18 @@
         <div class="box">
           <%= form_for [@bike, @bike.reservations.new] do |f| %>
             <%= f.hidden_field :bike_id, value: @bike.id %>
-            <%= f.hidden_field :borrower_id, value: current_user.id %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
             <div class="col-md-6">
-              <label>借りたい日</label>
+              <label>開始日</label>
               <%= raw sprintf(f.date_select(:start_date, start_year: Time.now.year ,use_two_digit_numbers: true, date_separator: '%s'), '年','月')+'日'%>
             </div>
             <div class="col-md-6">
-              <label>返す日</label>
+              <label>終了日</label>
               <%= raw sprintf(f.date_select(:end_date, start_year: Time.now.year ,use_two_digit_numbers: true, date_separator: '%s'), '年','月')+'日'%>
             </div>
             <p>料金：</p>
             <br>
-            <%= f.submit "この日程で予約する", class: "button is-info" %>
+            <%= f.submit "予約する", class: "button is-info" %>
           <% end %>
         </div>
       </div>

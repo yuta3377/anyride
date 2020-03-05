@@ -4,7 +4,7 @@ class CreateReservations < ActiveRecord::Migration[5.2]
       t.date :start_date, null: false
       t.date :end_date, null: false
       t.integer :price, null: false
-      t.references :borrower, foreign_key: { to_table: :users}
+      t.references :user, foreign_key: true
       t.references :bike, foreign_key: true
 
       t.timestamps
