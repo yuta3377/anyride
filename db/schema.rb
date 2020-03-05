@@ -71,14 +71,12 @@ ActiveRecord::Schema.define(version: 2020_02_17_210514) do
     t.date "start_date", null: false
     t.date "end_date", null: false
     t.integer "price", null: false
-    t.bigint "owner_id"
     t.bigint "borrower_id"
     t.bigint "bike_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bike_id"], name: "index_reservations_on_bike_id"
     t.index ["borrower_id"], name: "index_reservations_on_borrower_id"
-    t.index ["owner_id"], name: "index_reservations_on_owner_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -110,5 +108,4 @@ ActiveRecord::Schema.define(version: 2020_02_17_210514) do
   add_foreign_key "images", "bikes"
   add_foreign_key "reservations", "bikes"
   add_foreign_key "reservations", "users", column: "borrower_id"
-  add_foreign_key "reservations", "users", column: "owner_id"
 end
