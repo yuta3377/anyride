@@ -30,10 +30,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :reservations, dependent: :destroy
   has_many :bikes, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :bikes, through: :favorites, dependent: :destroy
+  has_many :reservations, dependent: :destroy
+  has_many :bikes, through: :reservations, dependent: :destroy
 
   def like(bike)
     favorites.find_or_create_by(bike_id: bike.id)

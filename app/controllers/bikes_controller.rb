@@ -7,7 +7,7 @@ class BikesController < ApplicationController
 
   def show
     @bike = Bike.find(params[:id])
-    @user = User.find(@bike.user_id)
+    @user = User.find(@bike.owner_id)
   end
 
   def new
@@ -61,7 +61,7 @@ class BikesController < ApplicationController
 
   def bike_params
     params.require(:bike).permit(:name, :price, :year, :displacement, :mileage, :description,
-                                 :user_id, :manufacture_id, :prefecture_id, :bodytype_id,
+                                 :owner_id, :manufacture_id, :prefecture_id, :bodytype_id,
                                  image_attributes: [:id, :image, :bike_id])
   end
 
