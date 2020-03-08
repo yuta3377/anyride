@@ -4,9 +4,41 @@
     <%= image_tag("home.jpg") %>
   </figure>
 </section>
+<section class="container">
+  <hr>
+  <div class="sandbox">
+    <div class="tile is-ancestor">
+      <div class="tile is-parent is-shady has-text-centered">
+        <%= link_to new_arrival_bikes_path do %>
+          <article class="tile is-child notification is-white">
+            <h2 class="title">新着バイク</h2>
+            <%= image_tag("new_arrival_bike.jpg") %>
+          </article>
+        <% end %>
+      </div>
+      <div class="tile is-parent is-shady has-text-centered">
+        <%= link_to '' do %>
+          <article class="tile is-child notification is-white">
+            <h2 class="title">人気バイク</h2>
+            <%= image_tag("popular_bike.jpg") %>
+          </article>
+        <% end %>
+      </div>
+      <div class="tile is-parent is-shady has-text-centered">
+        <%= link_to old_bikes_path do %>
+          <article class="tile is-child notification is-white">
+            <h2 class="title">旧車バイク</h2>
+            <%= image_tag("old_bike.jpg") %>
+          </article>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section">
   <div class="container has-text-centered">
-    <h2 class="title">バイク検索</h2>
+    <hr>
+    <h2 class="title">カテゴリー検索</h2>
   </div>
 </section>
 <section class="container">
@@ -45,42 +77,26 @@
       <% end %>
     </div>
   </div>
-  <hr class="login-hr">
-  <div class="sandbox">
-    <div class="tile is-ancestor">
-      <div class="tile is-parent is-shady has-text-centered">
-        <%= link_to 'bikes/new_arrival' do %>
-          <article class="tile is-child notification is-white">
-            <h2 class="title">新着バイク</h2>
-            <%= image_tag("new_arrival_bike.jpg") %>
-          </article>
-        <% end %>
-      </div>
-      <div class="tile is-parent is-shady has-text-centered">
-        <%= link_to '' do %>
-          <article class="tile is-child notification is-white">
-            <h2 class="title">人気バイク</h2>
-            <%= image_tag("popular_bike.jpg") %>
-          </article>
-        <% end %>
-      </div>
-      <div class="tile is-parent is-shady has-text-centered">
-        <%= link_to 'bikes/old' do %>
-          <article class="tile is-child notification is-white">
-            <h2 class="title">旧車バイク</h2>
-            <%= image_tag("old_bike.jpg") %>
-          </article>
-        <% end %>
-      </div>
-    </div>
+</section>
+<section class="section">
+  <div class="container has-text-centered">
+    <hr>
+    <h2 class="title">キーワード検索</h2>
+    <%= form_tag search_bikes_path, method: :get do %>
+      <%= text_field_tag :keywords, params[:keywords] %>
+      <%= submit_tag '検索', :name => nil %>
+    <% end %>
   </div>
 </section>
 <section class="section">
-  <% if current_user %>
-    <%= link_to new_bike_path do %>
-      <div class="container has-text-centered">
-        <button class="button is-info is-large">バイク登録はこちら！</button>
-      </div>
+  <div class="container has-text-centered">
+    <hr>
+    <% if current_user %>
+      <%= link_to new_bike_path do %>
+        <div class="container has-text-centered">
+          <button class="button is-info is-large">バイク登録はこちら！</button>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </section>

@@ -57,6 +57,16 @@ class BikesController < ApplicationController
     @old_bikes = Bike.where("year < ?", 2000)
   end
 
+  def search
+    @keywords = params[:keywords]
+
+    if @keywords.blank?
+      @bikes = []
+    else
+      @bikes = Bike.where("name LIKE :keyword", keyword: "%#{ActiveRecord::Base.sanitize_sql_like(@keywords)}%")
+    end
+  end
+
   private
 
   def bike_params
