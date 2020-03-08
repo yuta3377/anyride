@@ -33,6 +33,11 @@
           <% end %>
         </div>
       <% end %>
+      <div class="container has-text-centered">
+        <% if @bikes.empty? %>
+          <h2 class="title">条件に合うバイクがありません</h2>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
