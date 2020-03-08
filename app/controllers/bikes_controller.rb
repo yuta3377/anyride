@@ -47,6 +47,7 @@ class BikesController < ApplicationController
   end
 
   def popular
+    @popular_bikes = Bike.find(Favorite.group(:bike_id).order('count(bike_id) desc').pluck(:bike_id))
   end
 
   def new_arrival
