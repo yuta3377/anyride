@@ -11,7 +11,7 @@ RSpec.feature 'Home', type: :system do
     within '.navbar' do
       page.has_link? root_path
       page.has_link? prefectures_path
-      page.has_link? bikes_favorite_path
+      page.has_link? favorite_bikes_path
       page.has_link? edit_user_registration_path
       page.has_link? destroy_user_session_path
     end

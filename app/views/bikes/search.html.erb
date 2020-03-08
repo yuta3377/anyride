@@ -1,0 +1,43 @@
+<%= provide :title, "Result of Search" %>
+<section class="container">
+  <section class="section">
+    <div class="container has-text-centered">
+      <h2 class="title">"<%= @keywords %>"のバイク検索結果(<%= @bikes.count %>件)</h2>
+    </div>
+  </section>
+  <hr class="login-hr">
+</section>
+<div class="container">
+  <div class="section">
+    <div class="row columns is-multiline">
+      <% @bikes.each do |bike| %>
+        <div class="column is-one-third">
+          <%= link_to bike_path(bike.id) do %>
+            <div class="card large">
+              <div class="card-image">
+                <figure class="image">
+                  <%= image_tag bike.images.first.image.url %>
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <p class="title is-3"><%= bike.manufacture.name %> <%= bike.name %></p>
+                    <p class="is-4"><%= bike.year %>年式</p>
+                    <p class="is-4"><%= bike.price %>円/日</p>
+                    <p class="is-4">お気に入り<%= bike.favorites.count %>件</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="container has-text-centered">
+        <% if @bikes.empty? %>
+          <h2 class="title">条件に合うバイクがありません</h2>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

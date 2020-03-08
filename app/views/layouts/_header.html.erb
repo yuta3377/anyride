@@ -15,7 +15,7 @@
               <ul>
                 <li class="is-active"><strong><%= link_to "ホーム", root_path %></strong></li>
                 <li><strong><%= link_to "バイク検索", prefectures_path %></strong></li>
-                <li><strong><%= link_to "お気に入り", 'bikes/favorite' %></strong></li>
+                <li><strong><%= link_to "お気に入り", favorite_bikes_path %></strong></li>
                 <% if user_signed_in? %>
                   <% if current_user.bikes.first %>
                     <%= link_to edit_bike_path(current_user.bikes.first) do %>
