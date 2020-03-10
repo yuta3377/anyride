@@ -9,7 +9,7 @@
   </div>
   <div class="column is-offset-one-quarter">
     <% unless current_user.blank? %>
-      <% if current_user.check(@bike) %>
+      <% if Favorite.exists?(user_id: current_user.id, bike_id: @bike.id) %>
         <%= form_with model: current_user.favorites.find_by(bike_id: @bike.id), local: true, method: :delete do |f| %>
           <%= hidden_field_tag :bike_id, @bike.id %>
           <%= f.submit 'お気に入り解除', class: "button is-success" %>
@@ -21,7 +21,7 @@
         <% end %>
       <% end %>
     <% end %>
-    <h2>お気に入り<%= @bike.favorites.count %>件</h2>
+    <h2>お気に入り登録<%= @bike.favorites.count %>件</h2>
   </div>
   <div class="column is-half is-offset-one-quarter">
     <figure class="image">
@@ -42,9 +42,17 @@
   </div>
 </section>
 <section class="section">
-  <%= link_to bike_reservation_path(@bike.id) do %>
-    <div class="container has-text-centered">
-      <button class="button is-info is-large">予約手続きへ</button>
-    </div>
+  <% unless current_user.blank? %>
+    <%= link_to bike_reservation_path(@bike.id) do %>
+      <div class="container has-text-centered">
+        <button class="button is-info is-large">予約手続きへ</button>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path do %>
+      <div class="container has-text-centered">
+        <button class="button is-info is-large">予約手続きへ</button>
+      </div>
+    <% end %>
   <% end %>
 </section>

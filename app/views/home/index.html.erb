@@ -97,6 +97,23 @@
           <button class="button is-info is-large">バイク登録はこちら！</button>
         </div>
       <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <div class="container has-text-centered">
+          <button class="button is-info is-large">ログイン</button>
+        </div>
+        <br>
+        <br>
+      <% end %>
+      <div class="container has-text-centered">
+        <p>新規登録がお済みでない方はこちら！</p>
+        <br>
+      </div>
+      <%= link_to new_user_registration_path do %>
+        <div class="container has-text-centered">
+          <button class="button is-info is-large">新規登録</button>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </section>
